@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="product-container col-10 offset-1">
+                <div class="row mt-1 mb-2"></div>
+                <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                            <div class="card h-100 border-0">
+                                {% if product_item.image %}
+                                <a href="">
+                                    <img class="card-img-top img-fluid" src="{{ product_item.image.url }}" alt="{{ product_item.name }}">
+                                </a>
+                                {% else %}
+                                <a href="">
+                                    <img class="card-img-top img-fluid" src="/media/test.jpeg" alt="{{ product_item.name }}">
+                                </a>
+                                {% endif %}
+                                <div class="card-body pb-0">
+                                    <h2 class="mb-0">{{ product_item.name }}</h2>
+                                    <p>{{ product_item.description }}</p>
+                                </div>
+                                <div class="card-footer bg-white pt-0 border-0 text-left">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="lead mb-0 text-left font-weight-bold">€{{ product_item.price }}</p>
+                                            {% if product_item.on_sale %}
+                                                <small class="text-success"><i class="fas fa-bolt mr-1"></i>{{ product_item.discount_percent }}% off</small>
+                                            {% endif %}
+                                            {% if product_item.in_stock %}
+                                            <button href="#">Buy</button>
+                                            {% else %}
+                                            <br/><strong class="text-muted">NOT IN STOCK</strong>
+                                            {% endif %}
+                                            <h4>{{ product_item.policy.title }}</h4>
+                                            <small>{{ product_item.policy.info }}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

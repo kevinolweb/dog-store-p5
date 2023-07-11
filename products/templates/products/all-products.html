@@ -23,24 +23,26 @@
                 <div class="row mt-1 mb-2"></div>
                 <div class="row">
                     {% for product in products %}
+                        {% if product.in_stock %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                            <a href="{% url 'product-detail' product.id %}">
                             <div class="card h-100 border-0">
                                 {% if product.image %}
-                                <a href="">
+                                <a href="{% url 'product-detail' product.id %}">
                                     <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                                 </a>
                                 {% else %}
-                                <a href="">
+                                <a href="{% url 'product-detail' product.id %}">
                                     <img class="card-img-top img-fluid" src="/media/test.jpeg" alt="{{ product.name }}">
                                 </a>
                                 {% endif %}
                                 <div class="card-body pb-0">
-                                    <p class="mb-0">{{ product.name }}</p>
+                                    <a href="{% url 'product-detail' product.id %}"><p class="mb-0">{{ product.name }}</p></a>
                                 </div>
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
                                     <div class="row">
                                         <div class="col">
-                                            <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                                            <p class="lead mb-0 text-left font-weight-bold">€{{ product.price }}</p>
                                             {% if product.on_sale %}
                                                 <small class="text-success"><i class="fas fa-bolt mr-1"></i>{{ product.discount_percent }}% off</small>
                                             {% endif %}
@@ -48,6 +50,7 @@
                                     </div>
                                 </div>
                             </div>
+                            </a>
                         </div>
                         {% if forloop.counter|divisibleby:1 %}
                             <div class="col-12 d-sm-none mb-5">
@@ -69,6 +72,7 @@
                                 <hr>
                             </div>
                         {% endif %}
+                    {% endif %}
                     {% endfor %}
                 </div>
             </div>
