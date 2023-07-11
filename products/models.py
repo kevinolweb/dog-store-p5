@@ -6,13 +6,24 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name_plural = "Categories"
 
 class Policies(models.Model):
     title=models.CharField(max_length=200)
     info=models.TextField(max_length=500)
 
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = "Policies"
+
 class ProductStatus(models.Model):
-    type=models.CharField(max_length=200,blank=True,null=True)
+    title=models.CharField(max_length=200,blank=True,null=True)
+
+    def __str__(self):
+        return self.title
 
 class Product(models.Model):
     category=models.ForeignKey('Category',blank=True, null=True, on_delete=models.SET_NULL)
