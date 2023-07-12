@@ -78,13 +78,13 @@ body {
         z-index: 1030;
     }
 
-    .header-container {
+    .product-container {
         padding-top: 164px;
     }
 }
 /* movies the delivery info down when navbar is collapsed on mobile */
 @media (max-width: 991px) {
-    .header-container {
+    .product-container {
         padding-top: 116px;
     }
 
