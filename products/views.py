@@ -5,6 +5,12 @@ from .models import *
 def all_products(request):
     products = Product.objects.all()
     query=None
+    category=None
+
+    if request.GET:
+        if 'category' in request.GET:
+            category=request.GET['category']
+            products=products.filter(category__name__icontains=category)
 
     if request.GET:
         if 'q' in request.GET:
@@ -18,6 +24,7 @@ def all_products(request):
     product_list = {
     'products':products,
     'search_term':query,
+    'current_categories':category,
     }
     return render(request,'products/all-products.html',product_list)
 
