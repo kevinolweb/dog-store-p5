@@ -6,8 +6,21 @@ def all_products(request):
     products = Product.objects.all()
     query=None
     category=None
+    sort=None
+    direction=None
 
     if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'category':
+                sortkey = 'category__name'
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            products = products.order_by(sortkey)
+
         if 'category' in request.GET:
             category=request.GET['category']
             products=products.filter(category__name__icontains=category)
@@ -21,10 +34,13 @@ def all_products(request):
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products=products.filter(queries)
 
+    current_sort =f'{sort}_{direction}'
+
     product_list = {
     'products':products,
     'search_term':query,
     'current_categories':category,
+    'current_sort':current_sort,
     }
     return render(request,'products/all-products.html',product_list)
 
