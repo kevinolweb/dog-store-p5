@@ -29,6 +29,13 @@
                                 {% endif %}
                                 <div class="card-body pb-0">
                                     <h2 class="mb-0">{{ product_item.name }}</h2>
+                                    {% if product_item.category %}
+                                            <p class="small mt-1 mb-0">
+                                                <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
+                                                    <i class="fas fa-tag mr-1"></i>{{ product.category.name }}
+                                                </a>
+                                            </p>
+                                            {% endif %}
                                     <p>{{ product_item.description }}</p>
                                 </div>
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
