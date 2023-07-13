@@ -109,3 +109,31 @@
     </div>
 
 {% endblock content %}
+
+{% block postloadjs %}
+    {{block.super}}
+<script type="text/javascript">
+    $('#sort-selector').change(function() {
+        var selected = $(this);
+        var current_url = new URL(window.location);
+
+        var selected_value = selected.val();
+        if (selected_value != 'reset') {
+            var sort = selected_value.split('_')[0]
+            var direction = selected_value.split('_')[1]
+            
+            current_url.searchParams.set('sort',sort)
+            current_url.searchParams.set('direction',direction)
+            window.location.replace(current_url)
+
+        }
+        else {
+            current_url.searchParams.delete('sort')
+            current_url.searchParams.delete('direction')
+            window.location.replace(current_url)
+        }
+
+    })
+</script>
+
+{% endblock %}
