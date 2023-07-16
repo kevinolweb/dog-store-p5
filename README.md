@@ -49,9 +49,8 @@ As the ecommerce owner, I want the ability to:
 
 ### Kanban
 I used the Kanban feature board on Github to help plan my project successfully. I divided the project into a series of steps that needed to be completed. Once I started a task I marked it as in progress and done when finished. This helped me to clearly stay on task and not get lost in scope creep.
-[Image]
 
-The Kanban board can be viewed XX.
+The Kanban board can be viewed [https://github.com/users/kevinolweb/projects/3]
 
 ### Development Plan
 I identified a lof of requirements which I wanted to implement for the project. At its core I needed the project to be an ecommerce store which could process transactions and allow customers to create accounts. I strove to add extra features which could provide a more personalised experience for the user and increase purchase intent. Some items remain in scope for the next development phase to increase the application further such as:
