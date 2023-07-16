@@ -1,5 +1,4 @@
 # dog-store-p5
-![Project Preview](/additional/main-image-1.jpg)
 
 The Green Pup is an online ecommerce store focused on selling environmentally friendly accessories for dogs. It is aimed at dog lovers who love to spoil their little pet and are willing to spend a little extra on green products which were ethically produced. The store sells a range of different dog accessories such as dog kennels, beds, cages, collars, toys, jumpers, bowls etc.
 
