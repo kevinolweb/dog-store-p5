@@ -46,10 +46,10 @@
                                         <p class="my-0">€{{ item.product.price }}</p>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">{{ item.product.quantity }}</p>
+                                        <p class="my-0">{{ item.product_quantity }}</p>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">€ {{total|floatformat:2}}</p>
+                                        <p class="my-0">€ {{item.total}}</p>
                                     </td>
                                 </tr>
                             {% endfor %}

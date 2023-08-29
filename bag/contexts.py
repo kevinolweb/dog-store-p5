@@ -12,13 +12,13 @@ def bag_contents(request):
     
     for product_id, quantity in bag.items():
         product = get_object_or_404(Product, pk=product_id)
-        print(product.price)
         total += quantity * product.price
         product_quantity += quantity
         bag_items.append({
             'product_id': product_id,
             'product_quantity': quantity,
             'product': product,
+            'total':total,
         }
         )
 
