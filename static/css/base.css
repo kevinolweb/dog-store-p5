@@ -23,7 +23,9 @@ body {
     color: white;
     min-width: 260px;
 }
-
+.update-link, .remove-item{
+    cursor:pointer;
+}
 .btn-black {
     background: black;
     color: white;
