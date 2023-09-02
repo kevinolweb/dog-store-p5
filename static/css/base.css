@@ -94,3 +94,20 @@ body {
         height: calc(100vh - 116px);
     }
 }
+
+/* ------------------------------- toasts */
+
+.message-container {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 3px;
+}
