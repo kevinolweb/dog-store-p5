@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect, reverse
 
 def view_bag(request):
     #views whats in bag
@@ -17,5 +17,25 @@ def add_to_bag(request, product_id):
         bag[product_id] = quantity
 
     request.session['bag'] = bag
-    print(request.session['bag'])
     return redirect(redirect_url)
+
+def adjust_to_bag(request, product_id):
+    # Change the quantity of the specified product
+    quantity = int(request.POST.get('quantity'))
+    bag = request.session.get('bag',{})
+
+    if quantity > 0:
+        bag[product_id] = quantity;
+    else:
+        bag.pop(product_id)
+
+    request.session['bag'] = bag
+    return redirect(reverse('bag'))
+
+def remove_from_bag(request, product_id):
+    # Change the quantity of the specified product
+    bag = request.session.get('bag',{})
+    bag.pop(product_id)
+
+    request.session['bag'] = bag
+    return redirect(reverse('bag'))

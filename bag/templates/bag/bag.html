@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% load bag_helper %}
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -50,14 +50,14 @@
                                         <p class="my-0">{{ item.product_quantity }}</p>
                                     </td>
                                     <td class="py-3">
-                                        <form class="form update-form" method="POST" action="">
+                                        <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.product_id  %}">
                                             {% csrf_token %}
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     {% if item.product.in_stock %}
                                                     <div class="input-group-prepend">
                                                         <button class="decrement-qty btn btn-black rounded-0" 
-                                                            data-item_id="{{ item.product_id }}" id="decrement-qty_{{ item.product.id }}">
+                                                            data-item_id="{{ item.product_id }}" id="decrement-qty_{{ item.product_id }}">
                                                             <span>
                                                                 <i class="fas fa-minus fa-sm"></i>
                                                             </span>
@@ -65,11 +65,11 @@
                                                     </div>
                                                     <input class="form-control form-control-sm qty_input" type="number"
                                                         name="quantity" value="{{item.product_quantity}}" min="1" max="99"
-                                                        data-item_id="{{ item.product.id }}"
-                                                        id="id_qty_{{ item.product.id }}">
+                                                        data-item_id="{{ item.product_id }}"
+                                                        id="id_qty_{{ item.product_id }}">
                                                     <div class="input-group-append">
                                                         <button class="increment-qty btn btn-black rounded-0"
-                                                            data-item_id="{{ item.product.id }}" id="increment-qty_{{ item.product.id }}">
+                                                            data-item_id="{{ item.product_id }}" id="increment-qty_{{ item.product_id }}">
                                                             <span>
                                                                 <i class="fas fa-plus fa-sm"></i>
                                                             </span>
@@ -85,7 +85,7 @@
                                         <a class="remove-item text-danger float-right" id="remove_{{ item.product_id }}"><small>Remove</small></a>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">€ {{item.total}}</p>
+                                        <p class="my-0">€ {{item.product.price | calc_subtotal:item.product_quantity}}</p>
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -145,7 +145,7 @@
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
-        var url = `/bag/remove/${itemId}`;
+        var url = `/bag/remove/${itemId}/`;
         var data = {'csrfmiddlewaretoken': csrfToken};
 
         $.post(url, data)
