@@ -47,6 +47,7 @@ def remove_from_bag(request, product_id):
         bag = request.session.get('bag',{})
         bag.pop(product_id)
         request.session['bag'] = bag
+        messages.success(request, f'Removed a {product.name} from your bag!')
         return redirect(reverse('bag'))
 
     except Exception as e:
