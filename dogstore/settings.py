@@ -25,7 +25,7 @@ SECRET_KEY = 't54ut#_*05g88&y_pk=!u&*^4#&uupvdzdw#v--(f^dgzk)q+c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-kevinolweb-dogstorep5-7si6xlgtyzo.ws-eu104.gitpod.io']
+ALLOWED_HOSTS = ['8000-kevinolweb-dogstorep5-alkjb46ksdf.ws-eu104.gitpod.io']
 
 
 # Application definition
