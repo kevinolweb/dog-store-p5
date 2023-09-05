@@ -4,10 +4,12 @@ from django.db.models import Sum
 from django.conf import settings
 from products.models import Product
 from django_countries.fields import CountryField
-
+from profiles.models import UserProfile
 
 class Order(models.Model):
     full_name = models.CharField(max_length=55, null=False, blank=False)
+    user_profile=models.ForeignKey(UserProfile, on_delete=models.SET_NULL, 
+                                    blank=True, null=True, related_name='orders')
     phone_number = models.CharField(max_length=25, null=False, blank=False)
     email = models.EmailField(max_length=200, null=False, blank=False)
     order_number = models.CharField(max_length=35, null=False, editable=False)
