@@ -35,3 +35,14 @@
     color: #000;
     border: 1px solid #000;
 }
+
+/* ---- Styling for country dropdown ----*/
+select,
+select option {
+    color: #000000;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
+}
