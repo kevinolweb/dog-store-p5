@@ -77,3 +77,23 @@ def add_product(request):
     }
 
     return render(request, 'products/add_product.html', context)
+
+def edit_product(request, prod_id):
+    selected_product = get_object_or_404(Product, pk=prod_id)
+    if request.method == "POST":
+        form = ProductForm(request.POST, request.FILES, instance=selected_product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'You have successfully edited the product.')
+            return redirect(reverse('product-detail', args=[selected_product.id]))
+        else:
+            messages.error(request, 'Oops an error occured editing the product!')
+    else:
+        form = ProductForm(instance=selected_product)
+    context = {
+        'form': form,
+        'selected_product': selected_product,
+    }
+    return render(request,'products/edit_product.html', context)
+
+
