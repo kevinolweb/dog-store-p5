@@ -1,1 +1,1 @@
-web: gunicorn dogbeds.wsgi:application
+web: gunicorn dog-store.p5.wsgi:application
