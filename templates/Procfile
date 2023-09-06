@@ -1,1 +1,1 @@
-web: gunicorn dog-store.p5.wsgi:application
+web: gunicorn dogstore.wsgi
