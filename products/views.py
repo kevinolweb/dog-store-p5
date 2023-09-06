@@ -2,7 +2,9 @@ from django.shortcuts import render,get_object_or_404,redirect,reverse
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import *
-# Create your views here.
+from .forms import ProductForm
+from django.contrib import messages
+
 def all_products(request):
     products = Product.objects.all()
     query=None
@@ -56,3 +58,22 @@ def product_detail_view(request,product_id):
         'product_item':product_item,
     }
     return render(request,'products/product-detail.html',context)
+
+def add_product(request):
+    """ Adds product to the store """
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added a new product!')
+            return redirect(reverse('add_product'))
+        else:
+            messages.error(request, 'Oops! Failed to add product. Please ensure the form is valid.')
+    else:
+        form = ProductForm()
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'products/add_product.html', context)
