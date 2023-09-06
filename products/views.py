@@ -1,9 +1,11 @@
 from django.shortcuts import render,get_object_or_404,redirect,reverse
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 from django.db.models.functions import Lower
 from .models import *
 from .forms import ProductForm
 from django.contrib import messages
+
 
 def all_products(request):
     products = Product.objects.all()
@@ -59,8 +61,12 @@ def product_detail_view(request,product_id):
     }
     return render(request,'products/product-detail.html',context)
 
+@login_required
 def add_product(request):
     """ Adds product to the store """
+    if not request.user.is_superuser:
+        messages.error(request,'Sorry only admins can make amends to products!')
+        return redirect('all-products-list')
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -78,6 +84,7 @@ def add_product(request):
 
     return render(request, 'products/add_product.html', context)
 
+@login_required
 def edit_product(request, prod_id):
     selected_product = get_object_or_404(Product, pk=prod_id)
     if request.method == "POST":
@@ -96,6 +103,7 @@ def edit_product(request, prod_id):
     }
     return render(request,'products/edit_product.html', context)
 
+@login_required
 def delete_product(request, prod_id):
     selected_product = get_object_or_404(Product, pk=prod_id)
     if request.method == "POST":
