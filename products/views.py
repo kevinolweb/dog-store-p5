@@ -96,4 +96,16 @@ def edit_product(request, prod_id):
     }
     return render(request,'products/edit_product.html', context)
 
+def delete_product(request, prod_id):
+    selected_product = get_object_or_404(Product, pk=prod_id)
+    if request.method == "POST":
+        selected_product.delete()
+        messages.success(request, f'You have successfully deleted the product.')
+        return redirect('all-products-list')
+    
+    context = {
+        'selected_product': selected_product,
+    }
+    return render(request,'products/delete_product.html', context)
+
 
