@@ -71,7 +71,7 @@
                                     <small class="text-success"><i class="fas fa-bolt mr-1"></i>Sale</small>
                                     </div>
                                 {% endif %}
-                                    <p class="mb-0 font-weight-bold">{{ product.name }}</p>
+                                    <p class="mb-0 font-weight-bold"><a href="{% url 'product-detail' product.id %}">{{ product.name }}</a></p>
                                 </div>
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
                                     <div class="row">

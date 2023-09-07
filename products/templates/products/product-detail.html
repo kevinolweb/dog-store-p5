@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block extra_title %}
-{% if product_item.meta_title %} - {{product_item.meta_title}} {% else %} {{product_item.name}}
+{% if product_item.meta_title %} - {{product_item.meta_title}}{% else %}{{product_item.name}}
 {% endif %}
 {% endblock %}
 {% block extra_meta %}
@@ -22,7 +22,7 @@
 {% block content %}
 <div class="overlay"></div>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row pt-5">
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="image-container">
                     {% if product_item.image %}
@@ -105,8 +105,11 @@
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </div>
                         </form>
+                        {% if }
+                        <div class="container mt-3">
                         <h4>{{ product_item.policy.title }}</h4>
                         <small>{{ product_item.policy.info }}</small>
+                        </div>
                 </div>
             </div>
         </div>
