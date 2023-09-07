@@ -76,15 +76,15 @@ Before beginning the project I used Excel to help me visualise the database layo
 ### Wireframing
 Prior to developing the application, I created a number of wireframes to provide design and development direction for the project. You can view these wireframes here.
 
-(login.png)
+![Login](login.png)
 
-(My profile.png)
+![Profile Page](My profile.png)
 
-(product list page.png)
+![Product List](product list page.png)
 
-(Register.png)
+![Register Page](Register.png)
 
-(Homepage B.png)
+![Homepage](Homepage B.png)
 
 ## The Surface Plane
 
