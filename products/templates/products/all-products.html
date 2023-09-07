@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block page_header %}
-<div class="container header-container">
+<div class="container product-container">
     <div class="row">
         <div class="col"></div>
     </div>
@@ -55,7 +55,7 @@
                                 </a>
                                 {% else %}
                                 <a href="{% url 'product-detail' product.id %}">
-                                    <img class="card-img-top img-fluid" src="/media/test.jpeg" alt="{{ product.name }}">
+                                    <img class="card-img-top img-fluid" src="https://dogbeds-2f2abe44d7a8.s3.eu-north-1.amazonaws.com/media/hero-dog-2.jpg" alt="{{ product.name }}">
                                 </a>
                                 {% endif %}
                                 <div class="card-body pb-0">
