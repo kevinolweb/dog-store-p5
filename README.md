@@ -82,31 +82,82 @@ Prior to developing the application, I created a number of wireframes to provide
 ### Design
 I went with a green and black colour scheme to give the UX a eco friendly and premium friendly look.
 
+## Advertising
+### SEO, 
+The website was developed with SEO in mind and has features meta titles and descriptions thoughout as well as the use of alt tags. Meta titles and descriptions were particularly important for the individual products so they could be found on Google Search. A robots.txt file and sitemap was also created to help crawling of the site
+
+### Email Newsletter
+A mail chimp form was embedded on the site so users can sign up to the newsletter and keep up to date with offers. It is displayed prominetly in the navigation and has its own dedicated page.
+
+### Facebook Page
+A Facebook page was created to help market the business and this can be viewed below:
+![Facebook Preview](dogstore-fb-page.png)
 
 ## Testing
 There are a number of issues with the site that still need to be resolved.
+
+### Manual Testing
+### Manual Testing
+Manual tests were completed on the application to ensure everything is working correctly.
+
+#### Non Authenitcated Users
+
+| **Test** | **Pass/Fail** |
+|------------|----------------------|
+| Non logged in users cannot create a product | Pass |
+| Non logged in users cannot edit a product | Pass |
+| Non logged in users cannot delete a product | Pass |
+| Non logged in users can still make a purchase on the site without registering | Pass |
+| Non logged in users cannot access a profile page | Pass |
+| Non logged in users see "Sign in" and "Register links on homepage | Pass |
+| Non logged in users can register for the site and are redirected to their new profile  once successfully signed in | Pass |
+| Non logged in users are displayed user feedback throughout the site | Pass |
+
+
+#### Authenticated users
+| **Test** | **Pass/Fail** |
+|------------|----------------------|
+| Users who sign up cannot access the their profile page once theu verify their email | Pass |
+| Users who are signed in cannot delete products only superadmins can do this | Pass |
+| Users who are signed in cannot edit another product as only superadmins can do this  | Pass |
+| Users cannot create a product unless they are an admin | Pass |
+| Users can edit their profile information | Pass |
+| Non logged in users can purchase a product and when they are signed in their detail auto populate in the form field | Pass |
+| Notifications, an alert is displayed when the user logs in | Pass |
+| Notifications, an alert is displayed when the user logs out | Pass |
+
 
 ### HTML Testing
 W3C Validator
 All html templates were put through the W3C Validator and achieved pass results. See table documenting test process below:
 
-| Test Page |	Pass/Fail |
-| Home |	Pass |
+| **Test Page** | **Pass/Fail** |
+|------------|----------------------|
+| Home | Pass |
+| Login | Pass |
+| Logout | Pass |
+| Register | Pass |
+| All products | Pass |
+| Create a product | Pass |
+| Update a product | Pass |
+| Delete a product | Pass |
+| Product detail page | Pass |
+| Bag  | Pass |
+| Checkout  | Pass |
+| Thank You post checkout  | Pass |
+| Profile Page  | Pass |
+| Order History  | Pass |
+| 404 Page  | Pass |
 
-Login	Pass
-Logout	Pass
-Register	Pass
-All products	Pass
-Create a product	Pass
-Update a product	Pass
-Delete a product	Pass
-Product detail page	Pass
-Bag	Pass
-Checlout	Pass
-Thank you page	Pass
-profile	Pass
-order-history	Pass
-404 page 	Pass
+### CSS Testing
+The CSS stylesheet was put through W3C validation and passed with no errors.
+
+### Python Testing
+All of the created python code was put through flake8 to check for errors and no major ones were found. The program automated through files including files like the applications views, models, urls, tests, and other custom files.
+
+### Website Speed & Performance Test
+The website was tested using Google Lighthouse for responsiveness, accessibility, and site load speed scoring well on both mobile and desktop. See score below:
+
 
 ## Technologies Used
 * HTML
@@ -116,10 +167,23 @@ order-history	Pass
 
 
 ## Deployment
-* The code was deployed through Heroku server and can be viewed here XX
+* The code was deployed through Heroku server and can be viewed here [https://cuforumv2.herokuapp.com/].
 * The database used is Elephant SQL
-* All media files are stored through Cloudinary
+* All media files are stored through Amazon s3 bucket
+
+### Deployment Process
+The web application was deployed to Heroku. The steps involved included:
+1. Go to Heroku.
+2. Click "new" from the dashboard and select "create new app".
+3. Choose a name for the app then click "create app"
+4. Move to "settings"
+5. Next go to the  "config vars" and enter: SECRET_KEY: The Secret Key for your project, DATABASE_URL: The URL from your ElephantSQL dashboard, CLOUNDINARY_URL: The URL from your Cloudinary dashboard, PORT: 8000
+6. Navigate to "Deploy" and select Github. Find your repo and connect. Enable automatic deploys if you wish.
+7. Choose branch to deploy
+8. The build log will load and will show you if there are any issues with deployment and when it is complete
+9. You can now visit your app via the heroku url
 
 ## Credits 
 * The Code Institute projects were used to assist my learning of Django and building applications requiring CRUD functionality.
+
 
