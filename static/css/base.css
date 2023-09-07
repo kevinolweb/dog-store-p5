@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: url('/media/house.png') no-repeat center center fixed;
+    background: url('https://dogbeds-2f2abe44d7a8.s3.eu-north-1.amazonaws.com/media/hero-dog.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
     color: #555;
