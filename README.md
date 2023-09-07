@@ -76,15 +76,15 @@ Before beginning the project I used Excel to help me visualise the database layo
 ### Wireframing
 Prior to developing the application, I created a number of wireframes to provide design and development direction for the project. You can view these wireframes here.
 
-![Login](login.png)
+![Login](Login.png)
 
-![Profile Page](My profile.png)
+![Profile Page](My%20profile.png)
 
-![Product List](product list page.png)
+![Product List](product%20list%20page.png)
 
 ![Register Page](Register.png)
 
-![Homepage](Homepage B.png)
+![Homepage](Homepage%20B.png)
 
 ## The Surface Plane
 
@@ -105,7 +105,6 @@ A Facebook page was created to help market the business and this can be viewed b
 ## Testing
 There are a number of issues with the site that still need to be resolved.
 
-### Manual Testing
 ### Manual Testing
 Manual tests were completed on the application to ensure everything is working correctly.
 
