@@ -1,6 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% if product_item.meta_title %}
+{% block extra_title %} - {{product_item.meta_title}}{% endblock %}
+{% else %}
+{% block extra_title %} - {{product_item.name}}{% endblock %}
+{% endif %}
+{% block extra_meta %}
+{% if product_item.meta_description %}
+<meta name="description" content="{{product_item.meta_description}}">
+{% else %}
+<meta name="description" content="Shop for a {{product_item.name}} in our store. We have great deals available that will leave you dog happy.">
+{% end if %}
+{% endblock %}
 {% block page_header %}
 <div class="container product-container">
     <div class="row">
@@ -17,7 +28,7 @@
                 <div class="image-container">
                     {% if product_item.image %}
                         <a href="{{ product_item.image.url }}" target="_blank">
-                            <img class="card-img-top img-fluid" src="{{ product_item.image.url }}" alt="{{ product_item.name }}">
+                            <img class="card-img-top img-fluid" src="{{ product_item.image.url }}" alt="{% if product_item.alt_tag %} {{product_item.alt_tag}} {% else %} {{ product_item.name }}{% endif %}">
                         </a>
                         {% else %}
                         <a href="">
