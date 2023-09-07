@@ -71,7 +71,9 @@ I identified a lof of requirements which I wanted to implement for the project. 
 ## The Skeleton Plane
 
 ### Database Design
-Before beginning the project I used Excel to help me visualise the database layout and how the different keys would connect with each other. This helped me when in development as I already had the models ready to develop and knew how they connected making for faster deployment. I then drew out the database schema in a table design to envision the database schema.
+Before beginning the project I used Excel to help me visualise the database layout and how the different keys would connect with each other. This helped me when in development as I already had the models ready to develop and knew how they connected making for faster deployment. I then drew out the database schema in a table design to envision the database schema. See below:
+
+|[Database Plan](ecommerce-dog-store-plan.png)
 
 ### Wireframing
 Prior to developing the application, I created a number of wireframes to provide design and development direction for the project. You can view these wireframes here.
