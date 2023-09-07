@@ -3,6 +3,7 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
+
 def bag_contents(request):
     bag_items = []
     product_quantity = 0
@@ -18,11 +19,9 @@ def bag_contents(request):
             'product_id': product_id,
             'product_quantity': quantity,
             'product': product,
-            'total':total,
+            'total': total,
         }
         )
-
-
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENT / 100)
         free_delivery_left = settings.FREE_DELIVERY_THRESHOLD - total
@@ -35,7 +34,7 @@ def bag_contents(request):
 
     context = {
         'bag_items': bag_items,
-        'total':total,
+        'total': total,
         'grand_total': grand_total,
         'product_quantity': product_quantity,
         'delivery': delivery,

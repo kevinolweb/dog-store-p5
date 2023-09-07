@@ -6,9 +6,10 @@ from products.models import Product
 from django_countries.fields import CountryField
 from profiles.models import UserProfile
 
+
 class Order(models.Model):
     full_name = models.CharField(max_length=55, null=False, blank=False)
-    user_profile=models.ForeignKey(UserProfile, on_delete=models.SET_NULL, 
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, 
                                     blank=True, null=True, related_name='orders')
     phone_number = models.CharField(max_length=25, null=False, blank=False)
     email = models.EmailField(max_length=200, null=False, blank=False)
@@ -56,6 +57,7 @@ class Order(models.Model):
 
     def __str__(self):
         return self.order_number
+
 
 class OrderLineItem(models.Model):
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)

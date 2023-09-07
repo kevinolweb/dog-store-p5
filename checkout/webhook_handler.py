@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.conf import settings
 from .models import Order, OrderLineItem
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
@@ -6,6 +7,7 @@ from products.models import Product
 from profiles.models import UserProfile
 import json
 import time
+
 
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
@@ -22,7 +24,7 @@ class StripeWH_Handler:
         body = render_to_string(
             'checkout/confirmation_emails/confirmation_email_body.txt',
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
-        
+
         send_mail(
             subject,
             body,
@@ -70,8 +72,6 @@ class StripeWH_Handler:
                 profile.default_street_address2 = shipping_details.address.line2
                 profile.default_county = shipping_details.address.state
                 profile.save()
-
-
         order_exists = False
         attempt = 1
         while attempt <= 5:
@@ -136,7 +136,7 @@ class StripeWH_Handler:
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
             status=200)
-        
+
     def handle_payment_intent_payment_failed(self, event):
         """
         Handle the payment_intent.payment_failed webhook from Stripe
