@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
-{% if product_item.meta_title %}
-{% block extra_title %} - {{product_item.meta_title}}{% endblock %}
+
+{% block extra_title %}{% if product_item.meta_title %} - {{product_item.meta_title}}
 {% else %}
-{% block extra_title %} - {{product_item.name}}{% endblock %}
+{{product_item.name}}
+{% endblock %}
 {% endif %}
 {% block extra_meta %}
 {% if product_item.meta_description %}
@@ -28,7 +29,7 @@
                 <div class="image-container">
                     {% if product_item.image %}
                         <a href="{{ product_item.image.url }}" target="_blank">
-                            <img class="card-img-top img-fluid" src="{{ product_item.image.url }}" alt="{% if product_item.alt_tag %} {{product_item.alt_tag}} {% else %} {{ product_item.name }}{% endif %}">
+                            <img class="card-img-top img-fluid" src="{{ product_item.image.url }}" alt="{{ product_item.name }}">
                         </a>
                         {% else %}
                         <a href="">
