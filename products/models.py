@@ -33,7 +33,6 @@ class Product(models.Model):
     price=models.DecimalField(max_digits=6,decimal_places=2)
     policy=models.ForeignKey('Policies',blank=True,null=True, on_delete=models.SET_NULL)
     image=models.ImageField(null=True,blank=True)
-    alt_tag=models.CharField(max_length=61,blank=True,null=True)
     on_sale=models.BooleanField(default=False)
     discount_percent=models.CharField(max_length=10,blank=True,null=True)
     in_stock=models.BooleanField(default=True)
