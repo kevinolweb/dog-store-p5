@@ -49,14 +49,14 @@
                     {% endif %}
                     <h2 class="mb-0">{{ product_item.name }}</h2>
                         {% if request.user.is_superuser %}
-                        <small><a href="{% url 'edit_product' product_item.id %}">Edit</a><br>
-                        <small><a href="{% url 'delete_product' product_item.id %}">Delete</a>
+                        <p><a href="{% url 'edit_product' product_item.id %}">Edit</a></p><br>
+                        <p><a href="{% url 'delete_product' product_item.id %}">Delete</a></p>
                         {% endif %}
                         {% if product_item.category %}
-                            <p class="small mt-1 mb-0">
-                                <a class="text-muted" href="{% url 'all-products-list' %}?category={{ product_item.category.name }}">
-                                    <i class="fas fa-tag mr-1"></i>{{ product_item.category.name }}</a>
-                                        </p>
+                        <p class="small mt-1 mb-0">
+                            <a class="text-muted" href="{% url 'all-products-list' %}?category={{ product_item.category.name }}">
+                                <i class="fas fa-tag mr-1"></i>{{ product_item.category.name }}</a>
+                        </p>
                         {% endif %}
                         <p>{{ product_item.description }}</p>
                         <p class="lead mb-0 text-left font-weight-bold">€{{ product_item.price }}</p>
@@ -93,6 +93,7 @@
                                             {% endif %}
                                         </div>
                                     </div>
+                                </div>
                                 <div class="col-12">
                                     <a href="{% url 'all-products-list' %}" class="btn btn-outline-black rounded-0 mt-5">
                                         <span class="icon">
@@ -104,13 +105,13 @@
                                 </div>
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </div>
+                            {% if product_item.policy %}
+                            <div class="container mt-3">
+                            <h4>{{ product_item.policy.title }}</h4>
+                            <small>{{ product_item.policy.info }}</small>
+                            </div>
+                            {% endif %}
                         </form>
-                        {% if product_item.policy %}
-                        <div class="container mt-3">
-                        <h4>{{ product_item.policy.title }}</h4>
-                        <small>{{ product_item.policy.info }}</small>
-                        </div>
-                        {% endif %}
                 </div>
             </div>
         </div>
