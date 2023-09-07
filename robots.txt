@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /bag/
+Sitemap: https://dogbeds-2f2abe44d7a8.herokuapp.com/sitemap.xml
