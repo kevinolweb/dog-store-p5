@@ -1,5 +1,5 @@
 # dog-store-p5
-
+![Website Preview](green-pup.png)
 The Green Pup is an online ecommerce store focused on selling environmentally friendly accessories for dogs. It is aimed at dog lovers who love to spoil their little pet and are willing to spend a little extra on green products which were ethically produced. The store sells a range of different dog accessories such as dog kennels, beds, cages, collars, toys, jumpers, bowls etc.
 
 
@@ -76,6 +76,15 @@ Before beginning the project I used Excel to help me visualise the database layo
 ### Wireframing
 Prior to developing the application, I created a number of wireframes to provide design and development direction for the project. You can view these wireframes here.
 
+(login.png)
+
+(My profile.png)
+
+(product list page.png)
+
+(Register.png)
+
+(Homepage B.png)
 
 ## The Surface Plane
 
@@ -157,17 +166,19 @@ All of the created python code was put through flake8 to check for errors and no
 
 ### Website Speed & Performance Test
 The website was tested using Google Lighthouse for responsiveness, accessibility, and site load speed scoring well on both mobile and desktop. See score below:
-
+![Lighthouse](lighthouse-dogbeds.png)
 
 ## Technologies Used
 * HTML
 * CSS
 * Python
 * Django
+* Amazon S3
+* Javascript
 
 
 ## Deployment
-* The code was deployed through Heroku server and can be viewed here [https://cuforumv2.herokuapp.com/].
+* The code was deployed through Heroku server and can be viewed here [https://dogbeds-2f2abe44d7a8.herokuapp.com/].
 * The database used is Elephant SQL
 * All media files are stored through Amazon s3 bucket
 
