@@ -2,7 +2,7 @@
     <ul class="navbar-nav w-auto mx-auto">
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Products
+                View Products
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
                 <a href="{% url 'all-products-list' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
@@ -13,37 +13,15 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'all-products-list' %}?category=accessories">
                 Accessories
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item">Dog &amp; Essentials</a>
-                <a href="" class="dropdown-item">Dog Jumpers</a>
-                <a href="" class="dropdown-item">Dog Toys</a>
-                <a href="" class="dropdown-item">Dog Chews</a>
-            </div>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="dogbeds-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dog Beds
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="dogbeds-link">
-                <a href="{% url 'all-products-list' %}?category=beds" class="dropdown-item">Bed</a>
-                <a href="" class="dropdown-item">Dog Kennels</a>
-                <a href="" class="dropdown-item">All Dog Beds</a>
-            </div>
         </li>
 
         <li class="nav-item">
-            <a class="logo-font font-weight-bold nav-link text-black" href="#">Special Offers
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'all-products-list' %}?category=beds">
+                Dog Beds
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item">Dog Beds</a>
-                <a href="" class="dropdown-item">All Products</a>
-                <a href="" class="dropdown-item">Sales</a>
-                <a href="" class="dropdown-item">New</a>
-            </div>
         </li>
     </ul>
 </div>

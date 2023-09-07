@@ -105,11 +105,12 @@
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </div>
                         </form>
-                        {% if }
+                        {% if product_item.policy %}
                         <div class="container mt-3">
                         <h4>{{ product_item.policy.title }}</h4>
                         <small>{{ product_item.policy.info }}</small>
                         </div>
+                        {% endif %}
                 </div>
             </div>
         </div>
