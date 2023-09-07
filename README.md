@@ -86,6 +86,28 @@ I went with a green and black colour scheme to give the UX a eco friendly and pr
 ## Testing
 There are a number of issues with the site that still need to be resolved.
 
+### HTML Testing
+W3C Validator
+All html templates were put through the W3C Validator and achieved pass results. See table documenting test process below:
+
+| Test Page |	Pass/Fail |
+| Home |	Pass |
+
+Login	Pass
+Logout	Pass
+Register	Pass
+All products	Pass
+Create a product	Pass
+Update a product	Pass
+Delete a product	Pass
+Product detail page	Pass
+Bag	Pass
+Checlout	Pass
+Thank you page	Pass
+profile	Pass
+order-history	Pass
+404 page 	Pass
+
 ## Technologies Used
 * HTML
 * CSS
